@@ -14,6 +14,5 @@ export default class NewLoginController {
     // console.log(req.body);
     const resultToken = await this.serviceLogin.resultServiceLogin(email, password);
     return res.status(200).json({ token: resultToken });
-    
-  }
+  };
 }

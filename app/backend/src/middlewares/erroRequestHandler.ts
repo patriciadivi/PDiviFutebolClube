@@ -1,4 +1,4 @@
-import { ErrorRequestHandler } from "express";
+import { ErrorRequestHandler } from 'express';
 
 const erroMiddleware: ErrorRequestHandler = (err, _req, res, next) => {
   const { name, message, details } = err;
@@ -20,6 +20,6 @@ const erroMiddleware: ErrorRequestHandler = (err, _req, res, next) => {
   }
 
   next();
-}
+};
 
 export default erroMiddleware;

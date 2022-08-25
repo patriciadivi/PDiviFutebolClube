@@ -1,6 +1,6 @@
 import 'express-async-errors';
-import * as express from 'express';
 
+import * as express from 'express';
 
 import routes from './routes';
 
