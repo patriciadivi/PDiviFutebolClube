@@ -1,4 +1,11 @@
+import 'express-async-errors';
 import * as express from 'express';
+
+
+import routes from './routes';
+
+import globalError from './utils/globalError';
+// import erroMiddleware from './middlewares/erroRequestHandler';
 
 class App {
   public app: express.Express;
@@ -22,6 +29,9 @@ class App {
 
     this.app.use(express.json());
     this.app.use(accessControl);
+    this.app.use(routes);
+    // this.app.use(erroMiddleware);
+    this.app.use(globalError.handle);
   }
 
   public start(PORT: string | number):void {
