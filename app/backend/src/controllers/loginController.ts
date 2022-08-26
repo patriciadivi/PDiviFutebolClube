@@ -3,7 +3,7 @@ import NewLoginService from '../services/loginService';
 import { IServiceInterfaceLogin } from '../interfaces/index';
 
 export default class NewLoginController {
-  private service = NewLoginService
+  private service = NewLoginService;
 
   constructor(private serviceLogin: IServiceInterfaceLogin) {}
 
@@ -17,5 +17,5 @@ export default class NewLoginController {
     const { authorization } = req.headers;
     await this.service.resultServiceLoginValidate(authorization as string);
     return res.status(200).json({ role: 'admin' });
-  }
+  };
 }

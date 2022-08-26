@@ -14,6 +14,4 @@ class GlobalError {
   }
 }
 
-const globalError = new GlobalError();
-
-export default globalError;
+export default new GlobalError();

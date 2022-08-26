@@ -7,7 +7,9 @@ const loginValidateMiddlewares = (req: Request, _res: Response, next: NextFuncti
 
   if (!email || !password) throw new CustomerError(400, 'All fields must be filled');
 
-  if (!regexEmail.test(email) || password.length < 6) throw new CustomerError(401, 'Incorrect email or password');
+  if (!regexEmail.test(email) || password.length < 6) {
+    throw new CustomerError(401, 'Incorrect email or password');
+  }
 
   next();
 };

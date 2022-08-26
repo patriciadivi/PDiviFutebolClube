@@ -7,4 +7,4 @@ export class CustomerError extends Error {
   }
 }
 
-export default { CustomerError };
+export default CustomerError;
