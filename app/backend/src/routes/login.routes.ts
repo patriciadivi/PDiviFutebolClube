@@ -11,6 +11,7 @@ const newLoginController = new LoginController(newLoginService);
 const routerLogin = Router();
 
 routerLogin.post('/', middlewares.loginValidateMiddlewares, newLoginController.ControllerLogin);
+routerLogin.get('/validate', newLoginController.ControllerLoginValidate);
 
 // Router para test
 // routerLogin.get('/test', (_req, res) => {
