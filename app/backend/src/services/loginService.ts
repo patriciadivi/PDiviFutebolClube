@@ -4,7 +4,6 @@ import { CustomerError } from '../utils/customerError';
 import tokenGenerate from '../helpers/tokenGenerate';
 import LoginRepository from '../repository/loginRepository';
 import decryptTokenfunc from '../helpers/decryptTokenfunc';
-import { log } from 'console';
 
 export default class NewLoginService implements IServiceInterfaceLogin {
 
