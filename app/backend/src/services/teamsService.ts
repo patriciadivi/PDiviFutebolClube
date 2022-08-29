@@ -6,6 +6,11 @@ class TeamsService {
     const resultTeamsRepository = await TeamsRepository.RepositoryTeamsAll(); 
     return resultTeamsRepository;
   };
+
+  public ServiceTeamsByAppId = async (id: string) => {
+    const resultTeamsRepositoryId = await TeamsRepository.RepositoryTeamsId(id);
+    return resultTeamsRepositoryId;
+  };
 }
 
 export default new TeamsService();
