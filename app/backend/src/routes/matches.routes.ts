@@ -1,9 +1,8 @@
 import { Router } from 'express';
+import Matchescontroller from '../controllers/matchesController';
 
 const routesMatches = Router();
 
-routesMatches.get('/',(_req, res) => {
-    res.status(200).json({ message: 'Login successful' });
-  });
+routesMatches.get('/', Matchescontroller.ControllerMatchesAll);
 
 export default routesMatches;
