@@ -4,9 +4,7 @@ import TeamsService from '../services/teamsService';
 class TeamsController {
 
   ControllerTeamsAll = async (_req: Request, res: Response) => {
-    const resultTeamsServiceAll = await TeamsService.ServiceTeamsAll()
-    console.log('resultTeamsServiceAll', resultTeamsServiceAll);
-    
+    const resultTeamsServiceAll = await TeamsService.ServiceTeamsAll();
     return res.status(200).json(resultTeamsServiceAll);
   };
 

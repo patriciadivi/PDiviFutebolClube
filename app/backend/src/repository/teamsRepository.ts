@@ -2,9 +2,9 @@ import Teams from '../database/models/TeamsModel';
 
 class TeamsRepository {
 
-  public RepositoryTeamsAll = async () => {
+  public RepositoryTeamsAll = async (): Promise<Teams[]> => {
     const resultModeAll = await Teams.findAll();
-    return resultModeAll as [];
+    return resultModeAll;
   };
 
   RepositoryTeamsId = async (idParam: string) => {
