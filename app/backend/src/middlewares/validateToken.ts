@@ -11,8 +11,10 @@ const valiteToken = (req: Request, _res: Response, next: NextFunction): void => 
   }
   if (!authorization) throw new CustomerError(401, 'Token must be a valid token');
   const token = decryptTokenfunc(authorization as string);
+
+  if (!token) throw new CustomerError(401, 'Token must be a valid token');
+
   const { role } = JSON.parse(JSON.stringify(token));
-  console.log('>>>>>>>>>>>', role);
 
   if (!role) throw new CustomerError(401, 'Incorrect email or password');
 
