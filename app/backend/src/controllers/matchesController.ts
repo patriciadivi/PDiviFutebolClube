@@ -26,6 +26,13 @@ class Matchescontroller {
     await MatchesService.ServiceMatchesFinish(+id);
     return res.status(200).json({ message: 'Finished' });
   };
+
+  public ControllerMatchesId = async (req: Request, res: Response) => {
+    const { body } = req;
+    const { id } = req.params;
+    await MatchesService.ServiceMatchesId(body, +id);
+    res.status(200).json({ message: 'Update done successfully' });
+  };
 }
 
 export default new Matchescontroller();
