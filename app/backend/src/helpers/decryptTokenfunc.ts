@@ -12,7 +12,7 @@ export const decryptTokenfunc = (paramsToken: string) => {
     const data = jwt.verify(paramsToken, jwtSecret) as { data: jwt.JwtPayload };
     // const { role } = JSON.parse(JSON.stringify(data.data));
     // console.log(role);
-    if (!data) throw new CustomerError(401, 'invalid token');
+    if (!data) throw new CustomerError(401, 'Token must be a valid token');
     return data.data;
   } catch (error) {
     console.error(error);
