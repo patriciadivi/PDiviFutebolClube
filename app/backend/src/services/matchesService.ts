@@ -1,5 +1,6 @@
+import { CustomerError } from '../utils/customerError';
 import MatchesRepository from '../repository/matchesRepository';
-// import Matches from '../database/models/MatchesModel';
+import TeamsRepository from '../repository/teamsRepository';
 
 class MatchesService {
   public ServiceMatchesAll = async () => {
@@ -16,8 +17,15 @@ class MatchesService {
     await MatchesRepository.RepositoryMatchesFinish(finishId);
   };
 
-  public ServiceMatchesCreate = async (bodyParams: object) => {
-    console.log(bodyParams);
+  public ServiceMatchesCreate = async (bodyParams: any) => {
+    const { homeTeam, awayTeam } = bodyParams;
+    const resultHomeTeam = await TeamsRepository.RepositoryTeamsId(homeTeam);
+    const resultAwayTeam = await TeamsRepository.RepositoryTeamsId(awayTeam);
+
+    if (!resultHomeTeam || !resultAwayTeam) {
+      throw new CustomerError(404, 'There is no team with such id!');
+    }
+
     const newMtche = {
       ...bodyParams,
       inProgress: true,
