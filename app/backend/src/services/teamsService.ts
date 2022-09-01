@@ -7,7 +7,7 @@ class TeamsService {
     return resultTeamsRepository;
   };
 
-  public ServiceTeamsByAppId = async (id: string) => {
+  public ServiceTeamsByAppId = async (id: number) => {
     const resultTeamsRepositoryId = await TeamsRepository.RepositoryTeamsId(id);
 
     // if (resultTeamsRepositoryId.count < 2) throw new CustomerError(401, 'There is no team with such id!');

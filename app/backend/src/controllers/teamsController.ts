@@ -10,7 +10,7 @@ class TeamsController {
   ControllerTeamsId = async (req: Request, res: Response) => {
     const { id } = req.params;
     // console.log(req.params);
-    const resultTeamsServiceId = await TeamsService.ServiceTeamsByAppId(id);
+    const resultTeamsServiceId = await TeamsService.ServiceTeamsByAppId(+id);
     return res.status(200).json(resultTeamsServiceId);
   };
 }
