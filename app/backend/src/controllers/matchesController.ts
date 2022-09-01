@@ -17,7 +17,6 @@ class Matchescontroller {
   public ControllerMatchesCreate = async (req: Request, res: Response) => {
     const { body } = req;
     const resultMatchesControllerCreate = await MatchesService.ServiceMatchesCreate(body);
-    console.log(resultMatchesControllerCreate);
     return res.status(201).json(resultMatchesControllerCreate);
   };
 

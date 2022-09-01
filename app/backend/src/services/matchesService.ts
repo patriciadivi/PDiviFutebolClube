@@ -1,6 +1,7 @@
 import { CustomerError } from '../utils/customerError';
 import MatchesRepository from '../repository/matchesRepository';
 import TeamsRepository from '../repository/teamsRepository';
+import IResultCreate from '../interfaces/IResultCreate';
 
 class MatchesService {
   public ServiceMatchesAll = async () => {
@@ -17,7 +18,7 @@ class MatchesService {
     await MatchesRepository.RepositoryMatchesFinish(finishId);
   };
 
-  public ServiceMatchesCreate = async (bodyParams: any) => {
+  public ServiceMatchesCreate = async (bodyParams: IResultCreate) => {
     const { homeTeam, awayTeam } = bodyParams;
     const resultHomeTeam = await TeamsRepository.RepositoryTeamsId(homeTeam);
     const resultAwayTeam = await TeamsRepository.RepositoryTeamsId(awayTeam);
@@ -31,8 +32,11 @@ class MatchesService {
       inProgress: true,
     };
     const resultMatchesServiceCreate = await MatchesRepository.RepositoryMatchesCreate(newMtche);
-    console.log(resultMatchesServiceCreate);
     return resultMatchesServiceCreate;
+  };
+
+  public ServiceMatchesId = async (bodyParams: object, idParams: number) => {
+    await MatchesRepository.RepositoryMatchesId(bodyParams, idParams);
   };
 }
 
