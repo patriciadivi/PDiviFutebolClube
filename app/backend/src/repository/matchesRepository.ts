@@ -35,6 +35,17 @@ class MatchesRepository {
 
   public RepositoryMatchesId = async (bodyParams: object, id: number) =>
     Matches.update(bodyParams, { where: { id } });
+
+  public RepositoryMatchesFinished = async () => {
+    const resultFinishedMatches = await Matches.findAll(
+      { where: { inProgress: false },
+        include: [
+          { model: Teams, as: 'teamHome', attributes: { exclude: ['id'] } },
+          { model: Teams, as: 'teamAway', attributes: { exclude: ['id'] } }],
+      },
+    );
+    return resultFinishedMatches;
+  };
 }
 
 export default new MatchesRepository();
